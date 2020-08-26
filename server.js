@@ -7,7 +7,7 @@ const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const app = express()
 
-var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/blog";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/blog";
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
