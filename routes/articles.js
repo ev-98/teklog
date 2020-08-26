@@ -1,7 +1,9 @@
+//imports
 const express = require('express')
 const router = express.Router()
 const Article = require('./../models/article')
 
+//set up routes
 router.get('/new', (req, res) => {
     res.render('articles/new', {article: new Article()})
 })
@@ -32,6 +34,7 @@ router.delete('/:id', async(req,res) =>{
     res.redirect('/')
 })
 
+//reusable funcion for both posts and edits
 function saveArticleAndRedirect(path){
     return async(req,res)=>{
         let article = req.article
