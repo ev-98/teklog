@@ -1,14 +1,21 @@
 var PORT = process.env.PORT || 5000;
 //imports
 const express = require('express')
-const mongoose = require('mongoose')
+var mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
 const app = express()
 
-mongoose.connect('mongodb://localhost/blog', {
-    useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
+var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/blog";
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+  family: 4 // Use IPv4, skip trying IPv6
+};
+mongoose.connect(MONGODB_URI,options)
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:false}))
