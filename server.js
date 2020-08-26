@@ -11,7 +11,7 @@ var MONGODB_URI = process.env.MONGODB_URL || "mongodb://localhost/blog";
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useCreateIndex: true,
+  useUnifiedTopology: true,
   useFindAndModify: false,
   family: 4 // Use IPv4, skip trying IPv6
 };
